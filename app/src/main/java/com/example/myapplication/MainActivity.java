@@ -26,18 +26,19 @@ public class MainActivity extends AppCompatActivity {
 
         EditText editText = (EditText) findViewById(R.id.et_number);
         int guessValue = Integer.parseInt(editText.getText().toString());
+        String message = null;
 
         if(guessValue > randomNum) {
-            Toast.makeText(this,"LOWER",Toast.LENGTH_LONG).show();
+            message = "LOWER";
         }
         else if(guessValue < randomNum) {
-
-            Toast.makeText(this,"GREATER",Toast.LENGTH_SHORT).show();
+            message = "GREATER";
         }
         else {
             Toast.makeText(this,"Yes right guess number is "+randomNum,Toast.LENGTH_SHORT).show();
             generateRandomNumer();
         }
+        Toast.makeText(this,message,Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -45,7 +46,5 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         generateRandomNumer();
-
-
     }
 }
